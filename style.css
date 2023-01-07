@@ -3,6 +3,8 @@
     width: 700px;
     border: solid black;
     background-color: white;
+    /*TODO*/
+    display: inline-grid;
 }
 
 body{
@@ -109,4 +111,12 @@ input[type="range"]:focus{
 input[type="range"]:focus::-webkit-slider-thumb{
     border: 1px solid #d4a373;
     outline-offset: 0.125rem;
+}
+
+.gridElement{
+    
+}
+
+.styleApply{
+    background-color: black;
 }
