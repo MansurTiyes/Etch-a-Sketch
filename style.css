@@ -4,7 +4,7 @@
     border: solid black;
     background-color: white;
     /*TODO*/
-    display: inline-grid;
+    display: grid;
 }
 
 body{
@@ -117,6 +117,7 @@ input[type="range"]:focus::-webkit-slider-thumb{
     
 }
 
-.styleApply{
-    background-color: black;
+.hoverAnimation {
+    background-color: #d4a373;
+    color: #fefae0;
 }
