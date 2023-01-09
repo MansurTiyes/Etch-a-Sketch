@@ -5,9 +5,21 @@ colorMode.addEventListener('click', function(e){
     hoverRemover();
     colorMode.classList.add('hoverAnimation');
     const colorPick = document.querySelector('.colorPick')
-    colorPick.addEventListener('input',function(e){
-        mainAction(colorPick.value);
-    })
+    mainAction(colorPick.value);
+});
+
+const rainbowMode = document.querySelector('.rainbowMode');
+rainbowMode.addEventListener('click',function(e){
+    hoverRemover();
+    rainbowMode.classList.add('hoverAnimation');
+    rainbowPaint();
+});
+
+const eraser = document.querySelector('.eraser');
+eraser.addEventListener('click',function(e){
+    hoverRemover();
+    eraser.classList.add('hoverAnimation');
+    mainAction('white');
 });
 
 const clear = document.querySelector('.clear');
@@ -21,18 +33,6 @@ clear.addEventListener('click',function(e){
     mainAction('white');
 });
 
-/*const colorPick = document.querySelector('.colorPick')
-colorPick.addEventListener('input',function(e){
-    mainAction(colorPick.value);
-})*/
-
-/*const button = document.querySelectorAll('button');
-for (let i=0; i<button.length; i++){
-    button[i].addEventListener('click',function(e){
-        button[i].classList.add('hoverAnimation');
-    })
-}*/
-
 sizeSlider.addEventListener('input',function(e){
     gridRemover();
     gridMaker(sizeSlider.value);
@@ -44,6 +44,15 @@ function mainAction(input){
     for(let i=0; i<gridElement.length; i++){
         gridElement[i].addEventListener('mouseover',function(e){
             gridElement[i].setAttribute('style',`background-color: ${input};`);
+        })
+    }
+}
+
+function rainbowPaint(){
+    const gridElement = document.querySelectorAll(".gridElement");
+    for(let i=0; i<gridElement.length; i++){
+        gridElement[i].addEventListener('mouseover',function(e){
+            gridElement[i].setAttribute('style',`background-color: rgb(${randomNumberGenerator()},${randomNumberGenerator()},${randomNumberGenerator()});`);
         })
     }
 }
@@ -75,4 +84,11 @@ function hoverRemover(){
     for(let i = 0; i<hoverAnimation.length; i++){
         hoverAnimation[i].classList.remove('hoverAnimation');
     }
+}
+
+function randomNumberGenerator(){
+    const min = 0;
+    const max = 255;
+    let res = Math.floor(Math.random()*(max-min+1)+min);
+    return res;
 }
